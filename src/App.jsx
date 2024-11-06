@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductCard from './component/Cardcomo';  // Assuming Cardcomo is the file with ProductCard
+import Hero from './component/Hero.jsx';  // Assuming Cardcomo is the file with ProductCard
 
 function App() {
   // Define product data
@@ -48,6 +49,7 @@ function App() {
 
   return (
     <div>
+      <Hero/>
       {products.map((product, index) => (
         <div key={index}>
           <ProductCard
