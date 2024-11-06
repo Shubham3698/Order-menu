@@ -2,45 +2,37 @@ import React, { useState } from 'react';
 import { Card, Button, ButtonGroup } from 'react-bootstrap';
 import { FaStar } from 'react-icons/fa';
 
-const ProductCard = () => {
+// Accept product data as props
+const ProductCard = ({ name, image, rating, originalPrice, discountedPrice, phoneNumber }) => {
   const [quantity, setQuantity] = useState(1);
-
-  const product = {
-    name: 'Honey Jar',
-    image: 'https://cdn.pixabay.com/photo/2017/05/07/08/56/pancakes-2291908__340.jpg',
-    rating: 4.5,
-    originalPrice: 500,  // Original price
-    discountedPrice: 450, // Discounted price
-    phoneNumber: '7080981033'  // The phone number for WhatsApp
-  };
 
   const increaseQuantity = () => setQuantity(quantity + 1);
   const decreaseQuantity = () => setQuantity(quantity > 1 ? quantity - 1 : 1);
 
   // Function to handle the "Order Now" button click
   const handleOrderNow = () => {
-    const message = `Hello, I would like to order the following product:\n\nName: ${product.name}\nQuantity: ${quantity}\nPrice: ₹${product.discountedPrice} each`;
+    const message = `Hello, I would like to order the following product:\n\nName: ${name}\nQuantity: ${quantity}\nPrice: ₹${discountedPrice} each`;
     const encodedMessage = encodeURIComponent(message);
-    const url = `https://wa.me/${product.phoneNumber}?text=${encodedMessage}`;
+    const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     window.open(url, '_blank');  // Opens WhatsApp with the pre-filled message
   };
 
   // Calculate the total price
-  const totalPrice = product.discountedPrice * quantity;
+  const totalPrice = discountedPrice * quantity;
 
   return (
     <div className="d-flex justify-content-center">
       <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={product.image} alt="Product Image" />
+        <Card.Img variant="top" src={image} alt="Product Image" />
         <Card.Body>
-          <Card.Title>{product.name}</Card.Title>
+          <Card.Title>{name}</Card.Title>
 
           {/* Price Display */}
           <div className="mb-3">
             <span style={{ textDecoration: 'line-through', marginRight: '10px' }}>
-              ₹{product.originalPrice}
+              ₹{originalPrice}
             </span>
-            <span className="text-primary">₹{product.discountedPrice}</span>
+            <span className="text-primary">₹{discountedPrice}</span>
           </div>
 
           {/* Rating Display */}
@@ -48,7 +40,7 @@ const ProductCard = () => {
             <span className="me-2">Rating:</span>
             <span>
               {[...Array(5)].map((_, i) => (
-                <FaStar key={i} color={i < Math.round(product.rating) ? 'gold' : 'lightgray'} />
+                <FaStar key={i} color={i < Math.round(rating) ? 'gold' : 'lightgray'} />
               ))}
             </span>
           </div>
