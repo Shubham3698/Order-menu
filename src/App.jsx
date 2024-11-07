@@ -7,7 +7,7 @@ function App() {
   const products = [
     {
       name: 'Honey Jar 1',
-      image: 'https://cdn.pixabay.com/photo/2017/05/07/08/56/pancakes-2291908__340.jpg',
+      image: 'https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032__340.jpg',
       rating: 4.5,
       originalPrice: 500,
       discountedPrice: 450,
@@ -39,7 +39,7 @@ function App() {
     },
     {
       name: 'Honey Jar 5',
-      image: 'https://cdn.pixabay.com/photo/2017/05/07/08/56/pancakes-2291908__340.jpg',
+      image: 'https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032__340.jpg',
       rating: 4.8,
       originalPrice: 700,
       discountedPrice: 650,
