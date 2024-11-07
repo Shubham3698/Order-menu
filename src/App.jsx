@@ -44,6 +44,11 @@ function App() {
   return (
     <div>
       <Hero />
+
+      <br />
+      <br />
+      <br />
+      <br />
       <br />
       <ProductCard
         {...products[currentProductIndex]}

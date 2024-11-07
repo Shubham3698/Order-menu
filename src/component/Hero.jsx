@@ -1,9 +1,8 @@
 import React from 'react';
 import Slider from 'react-slick';
 import { Button } from 'react-bootstrap';
-
-const Hero = () => {
-};
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const ProductCard = ({ name, image, rating, originalPrice, discountedPrice, phoneNumber }) => {
   return (
@@ -27,18 +26,18 @@ const App = () => {
   ];
 
   const settings = {
-    dots: true, // Shows navigation dots
-    infinite: true, // Infinite scrolling
-    speed: 500, // Speed of the transition
-    slidesToShow: 1, // Number of slides shown at once
-    slidesToScroll: 1, // Number of slides moved per scroll
-    autoplay: true, // Enables autoplay
-    autoplaySpeed: 3000, // Speed of the autoplay
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    appendDots: (dots) => <ul style={appStyles.slickDots}>{dots}</ul>,
   };
 
   return (
-    <div>
-      <Hero />
+    <div style={appStyles.container}>
       <Slider {...settings}>
         {products.map((product, index) => (
           <div key={index}>
@@ -57,46 +56,6 @@ const App = () => {
   );
 };
 
-// Hero Styles
-const heroStyles = {
-  heroSection: {
-    width: '100%',
-    height: '60vh',
-    backgroundImage: 'url(https://via.placeholder.com/1500x600)',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    color: 'white',
-    textAlign: 'center',
-    padding: '0 20px',
-  },
-  heroContent: {
-    maxWidth: '800px',
-    textAlign: 'center',
-    zIndex: 1,
-  },
-  title: {
-    fontSize: '3rem',
-    fontWeight: 'bold',
-    marginBottom: '15px',
-  },
-  description: {
-    fontSize: '1.25rem',
-    marginBottom: '20px',
-    fontWeight: '300',
-  },
-  button: {
-    fontSize: '1.1rem',
-    padding: '10px 25px',
-    backgroundColor: '#FFD700',
-    borderColor: '#FFD700',
-    fontWeight: 'bold',
-  },
-};
-
-// Product Card Styles
 const cardStyles = {
   card: {
     padding: '20px',
@@ -105,6 +64,7 @@ const cardStyles = {
     borderRadius: '8px',
     margin: '20px',
     backgroundColor: 'white',
+    overflow: 'hidden', // Prevent any overflow within card
   },
   image: {
     width: '100%',
@@ -113,5 +73,17 @@ const cardStyles = {
   },
 };
 
-export default App;
+const appStyles = {
+  container: {
+    overflow: 'hidden', // Ensure no scrolling outside the container
+  },
+  slickDots: {
+    position: 'absolute',
+    bottom: '20px', // Position dots at the bottom of the container
+    left: '50%',
+    transform: 'translateX(-50%)',
+    zIndex: 2,
+  }
+};
 
+export default App;
