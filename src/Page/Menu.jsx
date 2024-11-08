@@ -90,8 +90,8 @@ const Menu = ({ addToCart }) => {
                 />
             </div>
 
-            {/* Cart Component */}
-            <Cart cartItems={cart} />
+            {/* Cart Component
+            <Cart cartItems={cart} /> */}
         </div>
     );
 };
