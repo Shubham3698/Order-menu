@@ -1,0 +1,104 @@
+/* App.css */
+
+/* Basic container setup */
+.app-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding: 20px;
+}
+
+/* Left column styling (where the menu and logo are) */
+.sett {
+  width: 200px;
+  background: red;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+/* Logo styling */
+.logo {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+/* 'Your Items' button styling */
+.your-items button {
+  padding: 10px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.your-items button:hover {
+  background-color: #e64a19;
+}
+
+/* Cart slide-in styling */
+.cart-slide {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  height: 0; /* Initially hidden */
+  overflow: hidden;
+  transition: height 0.3s ease-in-out;
+  border-top: 2px solid #ccc;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 100;
+}
+
+/* Cart becomes visible when it has the active class */
+.cart-slide.active {
+  height: 300px; /* Height when expanded, you can adjust */
+}
+
+/* Cart item styling */
+.cart-slide ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-slide ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Checkout button styling */
+.cart-slide .checkout-btn {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.cart-slide .checkout-btn:hover {
+  background-color: #45a049;
+}
+
+/* Button to view the cart (positioned on the bottom-right) */
+.cart-toggle-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background: #ff5722;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 101;
+}
+
+.cart-toggle-button:hover {
+  background: #e64a19;
+}
