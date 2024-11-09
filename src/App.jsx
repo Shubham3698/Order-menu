@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Menu from './Page/Menu';
 import Navvbar from './component/Navvbar';
 import Cart from './Page/Cart'; // Import Cart component
+import Hero from './component/Hero'
 import { Offcanvas, Button } from 'react-bootstrap';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <div>
             {/* Navbar with cart items count and toggle function */}
             <Navvbar cartItems={cartItems} toggleCart={toggleCart} />
+            <Hero/>
             
             <div style={{ width: '300px' }}>
                 {/* Main Content */}
