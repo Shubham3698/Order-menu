@@ -28,7 +28,7 @@ function App() {
     };
 
     return (
-        <div>
+        <div style={{display:'flex', flexWrap:"wrap", justifyContent:'center'}} >
             {/* Navbar with cart items count and toggle function */}
             <Navvbar cartItems={cartItems} toggleCart={toggleCart} />
             <Hero/>
