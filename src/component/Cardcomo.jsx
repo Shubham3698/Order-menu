@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import cls from './../assets/cls.wav'; // Replace with the actual path to your audio file
 
 const Cardcomo = ({ title, description, price, image, onPrevious, onNext, addToCart }) => {
     const [quantity, setQuantity] = useState(1);
@@ -7,6 +8,11 @@ const Cardcomo = ({ title, description, price, image, onPrevious, onNext, addToC
     const decreaseQuantity = () => setQuantity(prev => (prev > 1 ? prev - 1 : 1));
 
     const handleAddToCart = () => {
+        // Play sound effect
+        const audio = new Audio(cls);
+        audio.play();
+        
+        // Add item to cart
         addToCart({ title, price, quantity });
     };
 
