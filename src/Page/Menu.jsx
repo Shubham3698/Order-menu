@@ -5,17 +5,17 @@ import Cart from './../Page/Cart';
 const Menu = ({ addToCart }) => {
     const categoryData = {
         soups: [
-            { title: "Tomato Soup", description: "Classic tomato soup with basil.", price: 150, image: "https://cdn.pixabay.com/photo/2021/09/20/06/55/spaghetti-6639970__340.jpg" },
+            { title: "Tomato Soup", description: "Classic tomato soup with basil.", price: 150, image: "https://images.pexels.com/photos/12437581/pexels-photo-12437581.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
             { title: "Chicken Soup", description: "Hearty chicken soup.", price: 200, image: "chicken_soup.jpg" },
             { title: "Mushroom Soup", description: "Creamy mushroom soup.", price: 180, image: "mushroom_soup.jpg" }
         ],
         burgers: [
-            { title: "Veggie Burger", description: "A healthy veggie burger.", price: 120, image: "veggie_burger.jpg" },
+            { title: "Veggie Burger", description: "A healthy veggie burger.", price: 120, image: "https://images.pexels.com/photos/29042354/pexels-photo-29042354/free-photo-of-delicious-crispy-chicken-burger-with-fries.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
             { title: "Chicken Burger", description: "Grilled chicken burger with toppings.", price: 160, image: "chicken_burger.jpg" },
             { title: "Cheese Burger", description: "Cheesy burger with double cheese.", price: 180, image: "cheese_burger.jpg" }
         ],
         momos: [
-            { title: "Veg Momo", description: "Steamed vegetable momos.", price: 100, image: "veg_momo.jpg" },
+            { title: "Veg Momo", description: "Steamed vegetable momos.", price: 100, image: "https://images.pexels.com/photos/28445589/pexels-photo-28445589/free-photo-of-delicious-homemade-paneer-momos-with-chutney.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
             { title: "Chicken Momo", description: "Steamed chicken momos.", price: 130, image: "chicken_momo.jpg" },
             { title: "Paneer Momo", description: "Delicious paneer momos.", price: 150, image: "paneer_momo.jpg" }
         ]

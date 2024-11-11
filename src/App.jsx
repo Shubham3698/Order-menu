@@ -4,6 +4,7 @@ import Navvbar from './component/Navvbar';
 import Cart from './Page/Cart'; // Import Cart component
 import Hero from './component/Hero'
 import { Offcanvas, Button } from 'react-bootstrap';
+import Footer from './component/Footer';
 
 function App() {
     const [cartItems, setCartItems] = useState([]);
@@ -28,7 +29,8 @@ function App() {
     };
 
     return (
-        <div style={{display:'flex', flexWrap:"wrap", justifyContent:'center'}} >
+       <div>
+         <div style={{display:'flex', flexWrap:"wrap", justifyContent:'center'}} >
             {/* Navbar with cart items count and toggle function */}
             <Navvbar cartItems={cartItems} toggleCart={toggleCart} />
             <Hero/>
@@ -48,6 +50,9 @@ function App() {
                 </Offcanvas.Body>
             </Offcanvas>
         </div>
+            <Footer/>
+
+       </div>
     );
 }
 
