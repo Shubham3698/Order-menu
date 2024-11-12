@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 import Menu from './Page/Menu';
 import Navvbar from './component/Navvbar';
-import Cart from './Page/Cart'; // Import Cart component
-import Hero from './component/Hero'
-import { Offcanvas, Button } from 'react-bootstrap';
+import Cart from './Page/Cart';
+import Hero from './component/Hero';
+import { Offcanvas } from 'react-bootstrap';
 import Footer from './component/Footer';
 
 function App() {
     const [cartItems, setCartItems] = useState([]);
     const [showCart, setShowCart] = useState(false);
+    const [highlightedItem, setHighlightedItem] = useState(null); // New state for retry functionality
 
-    // Toggle cart visibility
     const toggleCart = () => setShowCart(!showCart);
 
-    // Add to cart function
     const addToCart = (item) => {
         setCartItems(prevCart => {
             const existingItem = prevCart.find(cartItem => cartItem.title === item.title);
@@ -28,31 +27,33 @@ function App() {
         });
     };
 
+    const handleRetry = (item) => {
+        setHighlightedItem(item); // Set the item to highlight in Menu
+        setShowCart(false); // Close the cart to show Menu
+    };
+
     return (
-       <div>
-         <div style={{display:'flex', flexWrap:"wrap", justifyContent:'center'}} >
-            {/* Navbar with cart items count and toggle function */}
-            <Navvbar cartItems={cartItems} toggleCart={toggleCart} />
-            <Hero/>
-            
-            <div style={{ width: '300px' }}>
-                {/* Main Content */}
-                <Menu addToCart={addToCart} />
+        <div>
+            <div style={{display:'flex', flexWrap:"wrap", justifyContent:'center'}}>
+                <Navvbar cartItems={cartItems} toggleCart={toggleCart} />
+                <Hero/>
+
+                <div style={{ width: '300px' }}>
+                    {/* Pass highlightedItem to Menu for retry functionality */}
+                    <Menu addToCart={addToCart} highlightedItem={highlightedItem} />
+                </div>
+
+                <Offcanvas show={showCart} onHide={toggleCart} placement="end">
+                    <Offcanvas.Header closeButton>
+                        <Offcanvas.Title>Cart</Offcanvas.Title>
+                    </Offcanvas.Header>
+                    <Offcanvas.Body>
+                        <Cart cartItems={cartItems} setCartItems={setCartItems} onRetry={handleRetry} />
+                    </Offcanvas.Body>
+                </Offcanvas>
             </div>
-
-            {/* Offcanvas to show Cart */}
-            <Offcanvas show={showCart} onHide={toggleCart} placement="end">
-                <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>Cart</Offcanvas.Title>
-                </Offcanvas.Header>
-                <Offcanvas.Body>
-                    <Cart cartItems={cartItems} /> {/* Display Cart Component */}
-                </Offcanvas.Body>
-            </Offcanvas>
-        </div>
             <Footer/>
-
-       </div>
+        </div>
     );
 }
 

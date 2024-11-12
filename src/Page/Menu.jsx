@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Cardcomo from './../component/Cardcomo';
-import Cart from './../Page/Cart';
 
-const Menu = ({ addToCart }) => {
+const Menu = ({ addToCart, highlightedItem }) => {
     const categoryData = {
         soups: [
             { title: "Tomato Soup", description: "Classic tomato soup with basil.", price: 150, image: "https://images.pexels.com/photos/12437581/pexels-photo-12437581.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
@@ -21,11 +20,25 @@ const Menu = ({ addToCart }) => {
         ]
     };
 
-    const [cart, setCart] = useState([]);
-
     const [currentSoupIndex, setCurrentSoupIndex] = useState(0);
     const [currentBurgerIndex, setCurrentBurgerIndex] = useState(0);
     const [currentMomoIndex, setCurrentMomoIndex] = useState(0);
+
+    useEffect(() => {
+        if (highlightedItem) {
+            const category = Object.keys(categoryData).find(cat =>
+                categoryData[cat].some(item => item.title === highlightedItem.title)
+            );
+
+            if (category === 'soups') {
+                setCurrentSoupIndex(categoryData.soups.findIndex(item => item.title === highlightedItem.title));
+            } else if (category === 'burgers') {
+                setCurrentBurgerIndex(categoryData.burgers.findIndex(item => item.title === highlightedItem.title));
+            } else if (category === 'momos') {
+                setCurrentMomoIndex(categoryData.momos.findIndex(item => item.title === highlightedItem.title));
+            }
+        }
+    }, [highlightedItem, categoryData]);
 
     const handleNext = (category) => {
         if (category === 'soups') {
@@ -89,9 +102,6 @@ const Menu = ({ addToCart }) => {
                     onNext={() => handleNext('momos')}
                 />
             </div>
-
-            {/* Cart Component
-            <Cart cartItems={cart} /> */}
         </div>
     );
 };

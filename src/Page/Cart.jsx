@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Cart = ({ cartItems }) => {
+const Cart = ({ cartItems, setCartItems, onRetry }) => {
     const phoneNumber = "7080981033";
 
     const orderAllItems = () => {
@@ -9,17 +9,23 @@ const Cart = ({ cartItems }) => {
         window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(fullMessage)}`, "_blank");
     };
 
+    const removeItem = (title) => {
+        setCartItems(prevCart => prevCart.filter(item => item.title !== title));
+    };
+
     return (
         <div>
             <h3>Cart</h3>
             {cartItems.length === 0 ? (
-                <p>Your cart is emptyssss gggggg.</p>
+                <p>Your cart is empty.</p>
             ) : (
                 <>
                     <ul>
                         {cartItems.map((item, index) => (
                             <li key={index}>
                                 {item.quantity} x {item.title} - ₹{item.price * item.quantity}
+                                <button onClick={() => removeItem(item.title)} className="btn btn-danger mx-2">Remove</button>
+                                <button onClick={() => onRetry(item)} className="btn btn-secondary">Retry</button>
                             </li>
                         ))}
                     </ul>
