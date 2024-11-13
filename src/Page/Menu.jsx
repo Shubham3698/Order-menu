@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Cardcomo from './../component/Cardcomo';
+import bug from './../assets/bug.gif'
+
 
 const Menu = ({ addToCart, highlightedItem }) => {
     const categoryData = {
@@ -9,7 +11,7 @@ const Menu = ({ addToCart, highlightedItem }) => {
             { title: "Mushroom Soup", description: "Creamy mushroom soup.", price: 180, image: "mushroom_soup.jpg" }
         ],
         burgers: [
-            { title: "Veggie Burger", description: "A healthy veggie burger.", price: 120, image: "https://images.pexels.com/photos/29042354/pexels-photo-29042354/free-photo-of-delicious-crispy-chicken-burger-with-fries.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+            { title: "Veggie Burger", description: "A healthy veggie burger.", price: 120, image: bug  },
             { title: "Chicken Burger", description: "Grilled chicken burger with toppings.", price: 160, image: "chicken_burger.jpg" },
             { title: "Cheese Burger", description: "Cheesy burger with double cheese.", price: 180, image: "cheese_burger.jpg" }
         ],

@@ -1,89 +1,71 @@
-import React from 'react';
-import Slider from 'react-slick';
-import { Button } from 'react-bootstrap';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css"; 
 
-const ProductCard = ({ name, image, rating, originalPrice, discountedPrice, phoneNumber }) => {
-  return (
-    <div style={cardStyles.card}>
-      <img src={image} alt={name} style={cardStyles.image} />
-      <h4>{name}</h4>
-      <p>Rating: {rating}⭐</p>
-      <p><s>₹{originalPrice}</s> ₹{discountedPrice}</p>
-      <Button variant="success">Buy Now</Button>
-    </div>
-  );
-};
-
-const App = () => {
-  const products = [
-    { name: 'Honey Jar 1', image: 'https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032__340.jpg', rating: 4.5, originalPrice: 500, discountedPrice: 450, phoneNumber: '7080981033' },
-    { name: 'Honey Jar 2', image: 'https://cdn.pixabay.com/photo/2017/05/07/08/56/pancakes-2291908__340.jpg', rating: 4.0, originalPrice: 600, discountedPrice: 550, phoneNumber: '7080981033' },
-    { name: 'Honey Jar 3', image: 'https://cdn.pixabay.com/photo/2017/05/07/08/56/pancakes-2291908__340.jpg', rating: 3.5, originalPrice: 450, discountedPrice: 400, phoneNumber: '7080981033' },
-    { name: 'Honey Jar 4', image: 'https://cdn.pixabay.com/photo/2017/05/07/08/56/pancakes-2291908__340.jpg', rating: 4.8, originalPrice: 700, discountedPrice: 650, phoneNumber: '7080981033' },
-    { name: 'Honey Jar 5', image: 'https://cdn.pixabay.com/photo/2017/05/07/08/56/pancakes-2291908__340.jpg', rating: 4.8, originalPrice: 700, discountedPrice: 650, phoneNumber: '7080981033' },
-  ];
-
+const HeroSection = () => {
   const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    appendDots: (dots) => <ul style={appStyles.slickDots}>{dots}</ul>,
+    dots: true,              // Neeche navigation dots dikhaye
+    infinite: true,          // Continuous loop
+    autoplay: true,          // Automatic sliding
+    autoplaySpeed: 3000,     // Delay between slides
+    speed: 1000,             // Slide transition speed
+    slidesToShow: 1,         // Ek slide at a time
+    slidesToScroll: 1,       // Ek scroll per slide
+    appendDots: dots => (
+      <div
+        style={{
+          position: "absolute",
+          bottom: "20px",      // Position dots 20px from bottom
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <ul style={{ margin: "0px" }}> {dots} </ul>
+      </div>
+    ),
+    customPaging: i => (
+      <div
+        style={{
+          width: "12px",
+          height: "12px",
+          borderRadius: "50%",
+          backgroundColor: "#ccc",
+          margin: "0 5px",
+          cursor: "pointer"
+        }}
+      ></div>
+    )
   };
 
   return (
-    <div style={appStyles.container}>
+    <div style={{ position: "relative", width: "100%", overflow: "hidden", marginBottom: "20px" }}>
       <Slider {...settings}>
-        {products.map((product, index) => (
-          <div key={index}>
-            <ProductCard
-              name={product.name}
-              image={product.image}
-              rating={product.rating}
-              originalPrice={product.originalPrice}
-              discountedPrice={product.discountedPrice}
-              phoneNumber={product.phoneNumber}
-            />
-          </div>
-        ))}
+        <div>
+          <img
+            src="https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Exclusive Offer 1"
+            style={{ width: "100%", height: "400px",objectFit: "cover",backgroundSize:'cover'}}
+          />
+        </div>
+        <div>
+          <img
+            src="https://images.pexels.com/photos/29042354/pexels-photo-29042354/free-photo-of-delicious-crispy-chicken-burger-with-fries.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Exclusive Offer 2"
+            style={{ width: "100%", height: "400px",objectFit: "cover",backgroundSize:'cover' }}
+          />
+        </div>
+        <div>
+          <img
+            src="https://images.pexels.com/photos/28445589/pexels-photo-28445589/free-photo-of-delicious-homemade-paneer-momos-with-chutney.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Exclusive Offer 3"
+            style={{ width: "100%", height: "400px",objectFit: "cover",backgroundSize:'cover' }}
+          />
+        </div>
       </Slider>
     </div>
   );
 };
 
-const cardStyles = {
-  card: {
-    padding: '20px',
-    textAlign: 'center',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-    borderRadius: '8px',
-    margin: '20px',
-    backgroundColor: 'white',
-    overflow: 'hidden', // Prevent any overflow within card
-  },
-  image: {
-    width: '100%',
-    height: 'auto',
-    borderRadius: '8px',
-  },
-};
-
-const appStyles = {
-  container: {
-    overflow: 'hidden', // Ensure no scrolling outside the container
-  },
-  slickDots: {
-    position: 'absolute',
-    bottom: '20px', // Position dots at the bottom of the container
-    left: '50%',
-    transform: 'translateX(-50%)',
-    zIndex: 2,
-  }
-};
-
-export default App;
+export default HeroSection;
