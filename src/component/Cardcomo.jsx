@@ -17,11 +17,11 @@ const Cardcomo = ({ title, description, price, image, onPrevious, onNext, addToC
     };
 
     return (
-        <div className="card mb-4 shadow-sm" style={{ width: 'auto', height: '28rem', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+        <div className="card mb-4 shadow-sm" style={{ width: 'auto', height: '480px', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
             <div style={{ height: '180px', width: '100%' }}>
-                <img className="card-img-top" src={image} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img className="card-img-top" src={image} alt={title} style={{ width: '100%', height: '100px', objectFit: 'cover' }} />
             </div>
-            <div className="card-body d-flex flex-column" style={{ paddingBottom: '10px' }}>
+            <div className="card-body d-flex flex-column" style={{ paddingBottom: '5px' }}>
                 <h5 className="card-title">{title}</h5>
                 <p className="card-text">{description}</p>
                 <div className="d-flex justify-content-between">
@@ -33,9 +33,9 @@ const Cardcomo = ({ title, description, price, image, onPrevious, onNext, addToC
                     </div>
                 </div>
                 <div className="d-flex justify-content-between">
-                    <button onClick={handleAddToCart} className="btn btn-success">Add to Cart</button>
                     <div className="d-flex">
                         <button onClick={onPrevious} className="btn btn-outline-primary mx-1">Previous</button>
+                    <button onClick={handleAddToCart} className="btn btn-success">Add to Cart</button>
                         <button onClick={onNext} className="btn btn-outline-primary mx-1">Next</button>
                     </div>
                 </div>

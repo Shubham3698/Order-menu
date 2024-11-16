@@ -5,6 +5,8 @@ import Cart from './Page/Cart';
 import Hero from './component/Hero';
 import { Offcanvas } from 'react-bootstrap';
 import Footer from './component/Footer';
+import CustomerReview from './component/CustomerReview';
+
 
 function App() {
     const [cartItems, setCartItems] = useState([]);
@@ -42,6 +44,7 @@ function App() {
                     {/* Pass highlightedItem to Menu for retry functionality */}
                     <Menu addToCart={addToCart} highlightedItem={highlightedItem} />
                 </div>
+                <CustomerReview/>
 
                 <Offcanvas show={showCart} onHide={toggleCart} placement="end">
                     <Offcanvas.Header closeButton>
