@@ -7,8 +7,12 @@ import { Offcanvas } from 'react-bootstrap';
 import Footer from './component/Footer';
 import CustomerReview from './component/CustomerReview';
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useParams } from "react-router-dom"; // useParams import karo
+
 
 function App() {
+    const { text } = useParams(); // URL se parameter capture karega
     const [cartItems, setCartItems] = useState([]);
     const [showCart, setShowCart] = useState(false);
     const [highlightedItem, setHighlightedItem] = useState(null); // New state for retry functionality
@@ -44,6 +48,7 @@ function App() {
                     {/* Pass highlightedItem to Menu for retry functionality */}
                     <Menu addToCart={addToCart} highlightedItem={highlightedItem} />
                 </div>
+
                 <CustomerReview/>
 
                 <Offcanvas show={showCart} onHide={toggleCart} placement="end">
@@ -58,6 +63,19 @@ function App() {
             <Footer/>
         </div>
     );
+
 }
 
-export default App;
+function Main() {
+    return (
+      <Router>
+        <Routes>
+          {/* Dynamic route that captures any text after the '/' */}
+          <Route path="/:text" element={<App />} />
+          <Route path="/" element={<App />} /> {/* Default route for '/' */}
+        </Routes>
+      </Router>
+    );
+  }
+
+export default Main;

@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
+import { useParams } from "react-router-dom";
 
 const Cart = ({ cartItems, setCartItems, onRetry }) => {
+    const { text } = useParams(); // Get the text parameter from the URL
     const phoneNumber = "7080981033";
-    const [name, setName] = useState('');
-    const [tableNumber, setTableNumber] = useState('');
+    const [name, setName] = useState(''); // Store user's name
 
     const orderAllItems = () => {
-        if (!name || !tableNumber) {
-            alert("Please enter both your name and table number.");
+        if (!name) {
+            alert("Please enter your name.");
             return;
         }
 
         const message = cartItems.map(item => `${item.quantity} x ${item.title} for ₹${item.price * item.quantity}`).join("\n");
-        const fullMessage = `Hello, my name is ${name}.\nTable No: ${tableNumber}\nI would like to order:\n${message}\nTotal: ₹${cartItems.reduce((total, item) => total + item.price * item.quantity, 0)}`;
+        const fullMessage = `Hello, my name is ${name}.\nTable No: ${text}\nI would like to order:\n${message}\nTotal: ₹${cartItems.reduce((total, item) => total + item.price * item.quantity, 0)}`;
         window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(fullMessage)}`, "_blank");
     };
 
@@ -29,7 +30,10 @@ const Cart = ({ cartItems, setCartItems, onRetry }) => {
         <div>
             <h3>Cart</h3>
             {cartItems.length === 0 ? (
-                <p>Your cart is empty.</p>
+               <div>
+                 <p>Your cart is empty.</p>
+                 <p>Your table : {text}</p> {/* Display the URL parameter */}
+               </div>
             ) : (
                 <>
                     <ul>
@@ -43,7 +47,7 @@ const Cart = ({ cartItems, setCartItems, onRetry }) => {
                     </ul>
                     <p>Total: ₹{cartItems.reduce((total, item) => total + item.price * item.quantity, 0)}</p>
 
-                    {/* Input section for name and table number */}
+                    {/* Input section for name */}
                     <div style={{ margin: '10px 0' }}>
                         <input
                             type="text"
@@ -52,14 +56,9 @@ const Cart = ({ cartItems, setCartItems, onRetry }) => {
                             onChange={(e) => setName(e.target.value)}
                             className="form-control mb-2"
                         />
-                        <input
-                            type="text"
-                            placeholder="Enter table number"
-                            value={tableNumber}
-                            onChange={(e) => setTableNumber(e.target.value)}
-                            className="form-control"
-                        />
                     </div>
+
+                    <p>Table No: {text}</p> {/* Display the table number from URL parameter */}
 
                     <button onClick={orderAllItems} className="btn btn-success">Order Now</button>
                 </>
