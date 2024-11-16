@@ -17,9 +17,9 @@ const Cardcomo = ({ title, description, price, image, onPrevious, onNext, addToC
     };
 
     return (
-        <div className="card mb-4 shadow-sm" style={{ width: 'auto', height: '480px', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+        <div className="card mb-4 shadow-sm" style={{ width: 'auto', height: '400px', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
             <div style={{ height: '180px', width: '100%' }}>
-                <img className="card-img-top" src={image} alt={title} style={{ width: '100%', height: '100px', objectFit: 'cover' }} />
+                <img className="card-img-top" src={image} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
             <div className="card-body d-flex flex-column" style={{ paddingBottom: '5px' }}>
                 <h5 className="card-title">{title}</h5>
