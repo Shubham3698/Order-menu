@@ -7,15 +7,13 @@ import { Offcanvas } from 'react-bootstrap';
 import Footer from './component/Footer';
 import CustomerReview from './component/CustomerReview';
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useParams } from "react-router-dom"; // useParams import karo
-
+import { useParams } from 'react-router-dom';
 
 function App() {
-    const { text } = useParams(); // URL se parameter capture karega
+    const { text } = useParams(); // Capture the text from the URL
     const [cartItems, setCartItems] = useState([]);
     const [showCart, setShowCart] = useState(false);
-    const [highlightedItem, setHighlightedItem] = useState(null); // New state for retry functionality
+    const [highlightedItem, setHighlightedItem] = useState(null);
 
     const toggleCart = () => setShowCart(!showCart);
 
@@ -34,21 +32,21 @@ function App() {
     };
 
     const handleRetry = (item) => {
-        setHighlightedItem(item); // Set the item to highlight in Menu
-        setShowCart(false); // Close the cart to show Menu
+        setHighlightedItem(item);
+        setShowCart(false);
     };
 
     return (
         <div>
-            <div style={{display:'flex', flexWrap:"wrap", justifyContent:'center'}}>
+            <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
                 <Navvbar cartItems={cartItems} toggleCart={toggleCart} />
                 <Hero/>
 
                 <div style={{ width: '300px' }}>
-                    {/* Pass highlightedItem to Menu for retry functionality */}
                     <Menu addToCart={addToCart} highlightedItem={highlightedItem} />
                 </div>
 
+                <p>Your table : {text}</p>
                 <CustomerReview/>
 
                 <Offcanvas show={showCart} onHide={toggleCart} placement="end">
@@ -63,19 +61,6 @@ function App() {
             <Footer/>
         </div>
     );
-
 }
 
-function Main() {
-    return (
-      <Router>
-        <Routes>
-          {/* Dynamic route that captures any text after the '/' */}
-          <Route path="/:text" element={<App />} />
-          <Route path="/" element={<App />} /> {/* Default route for '/' */}
-        </Routes>
-      </Router>
-    );
-  }
-
-export default Main;
+export default App;
