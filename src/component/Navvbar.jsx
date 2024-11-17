@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
-import { BsCart } from 'react-icons/bs';
+import { FaHeart } from 'react-icons/fa'; // Heart icon
 
 const Navvbar = ({ cartItems, toggleCart }) => {
     return (
@@ -15,8 +15,8 @@ const Navvbar = ({ cartItems, toggleCart }) => {
                         <Nav.Link href="/about">About</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
-                <Button variant="outline-primary" onClick={toggleCart}>
-                    <BsCart /> {cartItems.length}
+                <Button variant="outline-primary" onClick={toggleCart} className="heart-btn">
+                    <FaHeart className="animated-heart" /> {cartItems.length}
                 </Button>
             </Container>
         </Navbar>

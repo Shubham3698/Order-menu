@@ -6,8 +6,11 @@ import Hero from './component/Hero';
 import { Offcanvas } from 'react-bootstrap';
 import Footer from './component/Footer';
 import CustomerReview from './component/CustomerReview';
+import Sthero from './component/Sthero';
+import Faq from './component/Faq';
 
 import { useParams } from 'react-router-dom';
+
 
 function App() {
     const { text } = useParams(); // Capture the text from the URL
@@ -41,12 +44,11 @@ function App() {
             <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
                 <Navvbar cartItems={cartItems} toggleCart={toggleCart} />
                 <Hero/>
+                <Sthero/>
 
                 <div style={{ width: '300px' }}>
                     <Menu addToCart={addToCart} highlightedItem={highlightedItem} />
                 </div>
-
-                <p>Your table : {text}</p>
                 <CustomerReview/>
 
                 <Offcanvas show={showCart} onHide={toggleCart} placement="end">
@@ -58,6 +60,7 @@ function App() {
                     </Offcanvas.Body>
                 </Offcanvas>
             </div>
+                <Faq/>
             <Footer/>
         </div>
     );

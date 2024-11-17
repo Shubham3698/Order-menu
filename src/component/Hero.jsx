@@ -60,7 +60,7 @@ const HeroSection = () => {
           <img
             src="https://images.pexels.com/photos/28445589/pexels-photo-28445589/free-photo-of-delicious-homemade-paneer-momos-with-chutney.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="Exclusive Offer 3"
-            style={{ width: "100%", height: "400px",objectFit: "cover",backgroundSize:'cover' }}
+            style={{ width: "100%", height: "400px",objectFit: "cover",backgroundSize:'cover',borderRadius:'10px' }}
           />
         </div>
       </Slider>

@@ -1,0 +1,53 @@
+#faq .secondary {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.faq {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+details {
+  width: 100%;
+  max-width: 500px; /* Set a max width to avoid stretching too far */
+  margin-bottom: 1em;
+}
+
+summary {
+  padding: 1em;
+  border: 1px solid #ff0000;
+  cursor: pointer;
+  outline: none;
+  border-radius: 0.3em;
+  font-weight: 600;
+  background-color: #f2f2f2;
+}
+
+.content {
+  padding: 1em;
+  background-color: #f9f9f9;
+  max-height: 100px;  /* Set a fixed max height to prevent overflow */
+  overflow: hidden;   /* Prevent scrolling within the content */
+}
+
+details[open] summary ~ * {
+  animation: open 1s ease-in-out;
+}
+
+@keyframes open {
+  from {
+    opacity: 0;
+    margin-top: -10px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+/* End FAQ */
+
