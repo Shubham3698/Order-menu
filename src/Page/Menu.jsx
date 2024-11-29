@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import Cardcomo from './../component/Cardcomo';
 import bug from './../assets/bug.gif';
+import Shubham  from './../assets/Shubham.png';
+import './Menu.css'
 
 const Menu = ({ addToCart, highlightedItem }) => {
     const categoryData = {
         soups: [
             { title: "Tomato Soup", description: "Classic tomato soup with basil.", price: 150, image: "https://images.pexels.com/photos/12437581/pexels-photo-12437581.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-            { title: "Chicken Soup", description: "Hearty chicken soup.", price: 200, image: "chicken_soup.jpg" },
+            { title: "Chicken Soup", description: "Hearty chicken soup.", price: 200, image: Shubham },
             { title: "Mushroom Soup", description: "Creamy mushroom soup.", price: 180, image: "mushroom_soup.jpg" }
         ],
         burgers: [
             { title: "Veggie Burger", description: "A healthy veggie burger.", price: 120, image: bug },
-            { title: "Chicken Burger", description: "Grilled chicken burger with toppings.", price: 160, image: "chicken_burger.jpg" },
-            { title: "Cheese Burger", description: "Cheesy burger with double cheese.", price: 180, image: "cheese_burger.jpg" }
+            { title: "Chicken Burger", description: "Grilled chickenburger toppings.", price: 160, image: "chicken_burger.jpg" },
+            { title: "Cheese Burger", description: "Cheesy burger double cheese.", price: 180, image: "cheese_burger.jpg" }
         ],
         momos: [
             { title: "Veg Momo", description: "Steamed vegetable momos.", price: 100, image: "https://images.pexels.com/photos/28445589/pexels-photo-28445589/free-photo-of-delicious-homemade-paneer-momos-with-chutney.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
@@ -75,7 +77,7 @@ const Menu = ({ addToCart, highlightedItem }) => {
 
     return (
         <div className="container my-5">
-            <h1 className="text-center mb-4">Our Special Menu</h1>
+           
 
             <div className="mb-5">
                 <h2 className="text-center">Soups</h2>
@@ -90,7 +92,7 @@ const Menu = ({ addToCart, highlightedItem }) => {
                 />
             </div>
 
-            <div className="mb-5">
+            <div style={{width:'400px'}} className="mb-5">
                 <h2 className="text-center">Burgers</h2>
                 <Cardcomo
                     title={categoryData.burgers[currentBurgerIndex].title}
@@ -103,7 +105,7 @@ const Menu = ({ addToCart, highlightedItem }) => {
                 />
             </div>
 
-            <div className="mb-5">
+            <div style={{width:'400px'}} className="mb-5">
                 <h2 className="text-center">Momos</h2>
                 <Cardcomo
                     title={categoryData.momos[currentMomoIndex].title}

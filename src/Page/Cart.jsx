@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 const Cart = ({ cartItems, setCartItems, onRetry }) => {
     const { text } = useParams(); // Get the text parameter from the URL
-    const phoneNumber = "7080981033";
+    const phoneNumbers = [ "9565591014","7080981033"]; // Multiple phone numbers
     const [name, setName] = useState(''); // Store user's name
 
     const orderAllItems = () => {
@@ -14,7 +14,16 @@ const Cart = ({ cartItems, setCartItems, onRetry }) => {
 
         const message = cartItems.map(item => `${item.quantity} x ${item.title} for ₹${item.price * item.quantity}`).join("\n");
         const fullMessage = `Hello, my name is ${name}.\nTable No: ${text}\nI would like to order:\n${message}\nTotal: ₹${cartItems.reduce((total, item) => total + item.price * item.quantity, 0)}`;
-        window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(fullMessage)}`, "_blank");
+
+        // Send message to all phone numbers one by one
+        const sendMessagesSequentially = async () => {
+            for (let phone of phoneNumbers) {
+                window.open(`https://wa.me/${phone}?text=${encodeURIComponent(fullMessage)}`, "_blank");
+                await new Promise(resolve => setTimeout(resolve, 1000)); // Wait for 1 second before the next message
+            }
+        };
+
+        sendMessagesSequentially(); // Call the function to send messages
     };
 
     const removeItem = (title) => {

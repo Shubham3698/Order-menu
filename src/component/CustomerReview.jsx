@@ -47,7 +47,7 @@ function Reviews() {
 
   return (
     <Container style={{ marginTop: '2rem', marginBottom: '2rem' }}>
-      <h2 className="text-center">Customer Reviews</h2>
+      
       <Carousel activeIndex={index} onSelect={setIndex} interval={null}>
         {reviews.map((review, idx) => (
           <Carousel.Item key={idx}>

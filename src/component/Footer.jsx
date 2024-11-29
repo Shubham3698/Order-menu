@@ -4,7 +4,7 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <footer className="bg-dark text-light py-4">
+        <footer style={{width:'100%'}} className="bg-dark text-light py-4">
             <Container>
                 <Row className="mb-3">
                     {/* About Section */}

@@ -4,3 +4,8 @@ http://localhost:5173/Table%20no%20:%202
 http://localhost:5173/Table%20no%20:%203
 
 http://localhost:5173/Table%20no%20:%204
+
+
+ <h1 className="text-center mb-4">Our Special Menu</h1>
+
+ <h2 className="text-center">Customer Reviews</h2>

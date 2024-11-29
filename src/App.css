@@ -37,3 +37,24 @@
   background-color: #5cb85c;
 }
 
+
+
+.navigation-dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.navigation-dots .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navigation-dots .dot.active {
+  background-color: #333;
+}
