@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Cardcomo from './../component/Cardcomo';
 import bug from './../assets/bug.gif';
-import Shubham  from './../assets/Shubham.png';
 import './Menu.css'
 
 const Menu = ({ addToCart, highlightedItem }) => {
     const categoryData = {
         soups: [
             { title: "Tomato Soup", description: "Classic tomato soup with basil.", price: 150, image: "https://images.pexels.com/photos/12437581/pexels-photo-12437581.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
-            { title: "Chicken Soup", description: "Hearty chicken soup.", price: 200, image: Shubham },
+            { title: "Chicken Soup", description: "Hearty chicken soup.", price: 200, image: "" },
             { title: "Mushroom Soup", description: "Creamy mushroom soup.", price: 180, image: "mushroom_soup.jpg" }
         ],
         burgers: [
